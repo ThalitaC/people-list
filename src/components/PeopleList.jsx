@@ -11,6 +11,7 @@ class PeopleList extends React.Component {
         <div className="people-list-title">
         <p className="people-list-item">Nome</p>
         <p className="people-list-item">Idade</p>
+        <p className="people-list-item">Faixa etária</p>
         </div>
         {people.map((person, index) => (
           <Person key={index} person={person} />
