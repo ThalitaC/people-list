@@ -13,6 +13,17 @@ class AddPerson extends React.Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
+    if (name === 'age') {
+      if (value < 12) {
+        this.setState({ ageGroup: 'Criança' });
+      } else if (value >= 12 && value <= 19) {
+        this.setState({ ageGroup: 'Adolescente' });
+      } else if (value >= 20 && value <= 65) {
+        this.setState({ ageGroup: 'Adulto' });
+      } else if (value > 65) {
+        this.setState({ ageGroup: 'Idoso' });
+      }
+    }
   };
 
   updatePeople = () => {
@@ -21,6 +32,7 @@ class AddPerson extends React.Component {
     this.setState({
       name: '',
       age: '',
+      ageGroup: '0',
     });
   };
 
