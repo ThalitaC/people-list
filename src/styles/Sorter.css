@@ -1,0 +1,10 @@
+.sorter-container {
+  align-self: left;
+  display: flex;
+  padding: 1em;
+}
+
+.sorter-select {
+  border-radius: 2em;
+  height: 2em;
+}
