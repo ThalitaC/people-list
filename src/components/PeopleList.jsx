@@ -1,28 +1,27 @@
 import React from 'react';
+import Person from './Person';
+import PropTypes from 'prop-types';
 
 class PeopleList extends React.Component {
   render() {
     const { people } = this.props;
 
     return (
-      <div className="people-list-container">
+      <div>
         <div className="people-list-title">
         <p className="people-list-item">Nome</p>
         <p className="people-list-item">Idade</p>
         </div>
-        { people.map(person => (
-          <div key={person.id} className="people-list-body">
-            <div className="people-list-item">
-              {person.name}
-            </div>
-            <div className="people-list-item">
-              {person.age}
-            </div>
-          </div>
-        )) }
+        {people.map((person, index) => (
+          <Person key={index} person={person} />
+        ))};
       </div>
     );
-}
+  };
+};
+
+PeopleList.propTypes = {
+  people: PropTypes.array.isRequired
 };
 
 export default PeopleList;
