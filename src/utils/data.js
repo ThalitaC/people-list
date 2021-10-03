@@ -1,7 +1,8 @@
 const people = [
   {
 		"name": "Caio",
-		"age": 4
+		"age": 4,
+    "ageGroup": "Infant"
 	},
 	{
 		"name": "Ana",
