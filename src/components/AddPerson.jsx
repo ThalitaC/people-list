@@ -15,16 +15,24 @@ class AddPerson extends React.Component {
     this.setState({ [name]: value });
   };
 
-  reset = () => {
+  updatePeople = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      name: '',
+      age: '',
+    });
+  };
+
+  onBttnClick = () => {
     if(this.state.name === '' || this.state.age === '') {
       alert('Preencha todos os campos!');
+    } else if (this.state.name.match(/[0-9]+/) || this.state.name.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/)) {
+      alert('Nome inválido! Nome deve conter apenas letras');
+    } else if (this.state.age < 0) {
+      alert('Idade inválida!');
     } else {
-      const { onClick } = this.props;
-      onClick(this.state);
-      this.setState({
-        name: '',
-        age: ''
-      });
+      this.updatePeople();
     }
   };
 
@@ -57,7 +65,7 @@ class AddPerson extends React.Component {
         />
       </label>
     </form>
-    <button className="form-button" onClick={ this.reset }>Adicionar pessoa</button>
+    <button className="form-button" onClick={ this.onBttnClick }>Adicionar pessoa</button>
   </section>
     );
   };
